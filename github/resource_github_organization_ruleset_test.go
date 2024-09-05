@@ -62,6 +62,15 @@ func TestGithubOrganizationRulesets(t *testing.T) {
 						strict_required_status_checks_policy = true
 					}
 
+					merge_queue {
+						check_response_timeout_minutes = 10
+						grouping_strategy = "ALLGREEN"
+						max_entries_to_build = 5
+						max_entries_to_merge = 5
+						merge_method = "MERGE"
+						min_entries_to_merge = 1
+					}
+
 					required_workflows {
 						required_workflow {
 							path          = "path/to/workflow.yaml"
